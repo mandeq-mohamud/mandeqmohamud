@@ -1,13 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, ExternalLink } from "lucide-react";
-import arcXImage from "@/assets/arc_x.jpg";
-import tataCert from "@/assets/tata-cert.jpg";
-import mastercardCert from "@/assets/mastercard-cert.jpg";
-import deloitteCert from "@/assets/deloitte-cert.jpg";
-import clydeCert from "@/assets/clyde-cert.jpg";
-import bowmansCert from "@/assets/bowmans-cert.jpg";
-import hpLifeCert from "@/assets/hp-life-cert.jpg";
 
 const certifications = [
   {
@@ -16,7 +9,6 @@ const certifications = [
     date: "November 2025",
     description: "Foundation Level Threat Intelligence Analyst Certification",
     skills: ["Threat Intelligence", "Cyber Threat Analysis", "Security Research"],
-    image: arcXImage,
   },
   {
     title: "Cybersecurity Analyst Job Simulation",
@@ -24,7 +16,7 @@ const certifications = [
     date: "October 2025",
     description: "Identity and access management (IAM) fundamentals, IAM strategy assessment, crafting custom IAM solutions, and platform integration",
     skills: ["IAM", "Access Control", "Platform Integration", "Security Strategy"],
-    image: tataCert,
+    certificateUrl: "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_68e593e099e508cb70314a32_1759878921191_completion_certificate.pdf",
   },
   {
     title: "Cybersecurity Job Simulation",
@@ -32,7 +24,7 @@ const certifications = [
     date: "October 2025",
     description: "Designed phishing email simulations and interpreted phishing simulation results",
     skills: ["Phishing Detection", "Social Engineering", "Security Awareness"],
-    image: mastercardCert,
+    certificateUrl: "https://www.theforage.com/completion-certificates/mfxGwGDp6WkQmtmTf/vcKAB5yYAgvemepGQ_mfxGwGDp6WkQmtmTf_68e593e099e508cb70314a32_1759877935952_completion_certificate.pdf",
   },
   {
     title: "Cyber Job Simulation",
@@ -40,7 +32,7 @@ const certifications = [
     date: "October 2025",
     description: "Completed practical cybersecurity tasks and assessments",
     skills: ["Cybersecurity", "Risk Assessment", "Security Consulting"],
-    image: deloitteCert,
+    certificateUrl: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_68e593e099e508cb70314a32_1759876796518_completion_certificate.pdf",
   },
   {
     title: "Commercial Law Job Simulation",
@@ -48,7 +40,7 @@ const certifications = [
     date: "October 2025",
     description: "Reviewed building contracts, drafted variations, assessed IP law implications of AI, and prepared presentations on governing law and jurisdiction",
     skills: ["Commercial Law", "Contract Review", "IP Law", "AI Compliance"],
-    image: clydeCert,
+    certificateUrl: "https://www.theforage.com/completion-certificates/KyNNo9RWfY2FF3pNs/QBfhTrfzu53YDvH3A_KyNNo9RWfY2FF3pNs_68e593e099e508cb70314a32_1759916284816_completion_certificate.pdf",
   },
   {
     title: "Kenya Commercial Law Job Simulation",
@@ -56,7 +48,7 @@ const certifications = [
     date: "October 2025",
     description: "Real estate financing, company reorganization, demand letters, IP due diligence, and employment law",
     skills: ["Commercial Law", "Due Diligence", "Employment Law", "Real Estate Law"],
-    image: bowmansCert,
+    certificateUrl: "https://www.theforage.com/completion-certificates/GhYyk7wXCfkSs36Kh/gSWQJD8MbffSrqG8b_GhYyk7wXCfkSs36Kh_68e593e099e508cb70314a32_1759879987559_completion_certificate.pdf",
   },
   {
     title: "AI for Business Professionals",
@@ -64,7 +56,6 @@ const certifications = [
     date: "August 2025",
     description: "Learned about AI's role in business, crafting effective prompts, ethical use, and professional growth",
     skills: ["AI", "Business Intelligence", "Ethics", "Professional Development"],
-    image: hpLifeCert,
   },
 ];
 
@@ -83,20 +74,26 @@ const Certifications = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
-                {cert.image && (
-                  <div className="mb-4 rounded-lg overflow-hidden">
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                )}
                 <div className="flex items-start justify-between">
                   <Award className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-                  <ExternalLink className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {cert.certificateUrl && (
+                    <ExternalLink className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  )}
                 </div>
-                <CardTitle className="text-xl mt-2">{cert.title}</CardTitle>
+                <CardTitle className="text-xl mt-2">
+                  {cert.certificateUrl ? (
+                    <a
+                      href={cert.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      {cert.title}
+                    </a>
+                  ) : (
+                    cert.title
+                  )}
+                </CardTitle>
                 <CardDescription className="text-primary font-semibold">
                   {cert.organization} • {cert.date}
                 </CardDescription>
