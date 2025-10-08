@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cybersecurity Theme - Matrix Green & Cyber Green */
+    --background: 120 15% 8%;
+    --foreground: 120 100% 95%;
+
+    --card: 120 20% 10%;
+    --card-foreground: 120 100% 95%;
+
+    --popover: 120 25% 9%;
+    --popover-foreground: 120 100% 95%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 120 15% 8%;
+
+    --secondary: 140 90% 45%;
+    --secondary-foreground: 120 15% 8%;
+
+    --muted: 120 15% 15%;
+    --muted-foreground: 120 30% 65%;
+
+    --accent: 150 100% 40%;
+    --accent-foreground: 120 15% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 120 100% 95%;
+
+    --border: 120 20% 18%;
+    --input: 120 20% 12%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom cybersecurity tokens */
+    --cyber-glow: 120 100% 50%;
+    --neon-green: 120 100% 60%;
+    --matrix-green: 120 100% 40%;
+    --lime-accent: 80 100% 50%;
+    
+    /* Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(120 100% 20%), hsl(140 90% 25%));
+    --gradient-hero: linear-gradient(180deg, hsl(120 15% 8%) 0%, hsl(120 20% 10%) 50%, hsl(130 25% 12%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(120 20% 8%), hsl(120 20% 12%));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(120 100% 50% / 0.3);
+    --shadow-glow-hover: 0 0 40px hsl(120 100% 50% / 0.5);
+    --shadow-card: 0 8px 32px hsl(120 25% 4% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(180deg, hsl(120 15% 8%) 0%, hsl(120 20% 10%) 50%, hsl(130 25% 12%) 100%);
+    background-attachment: fixed;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(120 20% 8%);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(120 100% 50%);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(120 100% 60%);
+  }
+}
+
+@layer utilities {
+  .glow-effect {
+    text-shadow: 0 0 10px hsl(120 100% 50% / 0.5),
+                 0 0 20px hsl(120 100% 50% / 0.3);
+  }
+  
+  .glow-effect-strong {
+    text-shadow: 0 0 20px hsl(120 100% 50% / 0.8),
+                 0 0 40px hsl(120 100% 50% / 0.5),
+                 0 0 60px hsl(120 100% 50% / 0.3);
+  }
+  
+  .card-glow {
+    box-shadow: 0 8px 32px hsl(120 25% 4% / 0.5),
+                0 0 20px hsl(120 100% 50% / 0.1);
+  }
+  
+  .card-glow:hover {
+    box-shadow: 0 8px 32px hsl(120 25% 4% / 0.5),
+                0 0 30px hsl(120 100% 50% / 0.3);
+  }
+}
