@@ -4,13 +4,6 @@ import { Award, ExternalLink } from "lucide-react";
 
 const certifications = [
   {
-    title: "Cyber Threat Intelligence 101",
-    organization: "arcX",
-    date: "November 2025",
-    description: "Foundation Level Threat Intelligence Analyst Certification",
-    skills: ["Threat Intelligence", "Cyber Threat Analysis", "Security Research"],
-  },
-  {
     title: "Cybersecurity Analyst Job Simulation",
     organization: "Tata Consultancy Services",
     date: "October 2025",
