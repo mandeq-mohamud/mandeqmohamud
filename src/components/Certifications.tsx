@@ -86,7 +86,7 @@ const Certifications = () => {
                       href={cert.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
+                      className="hover:text-primary transition-colors cursor-pointer hover:underline inline-flex items-center gap-2"
                     >
                       {cert.title}
                     </a>
